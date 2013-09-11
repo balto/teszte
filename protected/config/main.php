@@ -16,11 +16,14 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+        'application.extensions.behaviors.*',
+        'application.extensions.phputils.*',
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
         'teszt',
+        'ticket',
 
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
@@ -53,15 +56,13 @@ return array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
 		// uncomment the following to use a MySQL database
-		/*
-		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
-			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
-			'charset' => 'utf8',
-		),
-		*/
+        'db'=>array(
+            'connectionString' => 'mysql:host=127.0.0.1;dbname=hotel2',
+            'emulatePrepare' => true,
+            'username' => 'root',
+            'password' => 'vargabal',
+            'charset' => 'utf8',
+        ),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
