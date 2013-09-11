@@ -57,9 +57,9 @@ return array(
 		),
 		// uncomment the following to use a MySQL database
         'db'=>array(
-            'connectionString' => 'mysql:host=127.0.0.1;dbname=hotel2',
+            'connectionString' => 'mysql:host=localhost;dbname=admin_aapro',
             'emulatePrepare' => true,
-            'username' => 'root',
+            'username' => 'aadmin',
             'password' => 'vargabal',
             'charset' => 'utf8',
         ),
