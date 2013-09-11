@@ -583,7 +583,7 @@ class Controller extends CController
     public function isValidRequest(){
         $authKey = $this->getParameter('auth_key', null, false);
 
-        if($authKey != Yii::app()->params['apiAuthKey']){
+        if(Yii::app()->params['apiAuthOn'] && ($authKey != Yii::app()->params['apiAuthKey'])){
             return false;
         }
         else{
