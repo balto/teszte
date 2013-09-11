@@ -89,5 +89,7 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
+		'apiAuthOn' => false,
+		'apiAuthKey' => '123456789',
 	),
 );
