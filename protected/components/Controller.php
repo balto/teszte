@@ -332,17 +332,12 @@ class Controller extends CController
 
     protected function beforeAction($action)
     {
+        if(!$this->isValidRequest()){
+            echo 'NO AUTHORIZED';
 
-	    if ($this->module) {
-	        if (  !$this->getUserHasCredential($this->module->id, $this->getId(), $this->action->id)) {
-	            $this->layout = false;
-	            header('HTTP/1.1 403 Forbidden');
-	            $response = json_encode(array("error"=>array("message"=>Yii::t('msg',"Ön nem rendelkezik az adott művelet elvégzéséhez szükséges jogosultsággal!")), "status"=>403));
-	            $this->renderText($response);
-	            Yii::app()->end();
+            Yii::app()->end();
+        }
 
-	        }
-	    }
 	    return true;
 
     }
@@ -583,5 +578,16 @@ class Controller extends CController
         $results = StatusManager::getInstance()->getStatus($model, $column);
 
         $this->renderText(json_encode($results, true));
+    }
+
+    public function isValidRequest(){
+        $authKey = $this->getParameter('auth_key', null, false);
+
+        if($authKey != Yii::app()->params['authKey']){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }
