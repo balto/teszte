@@ -2,6 +2,8 @@
 
 class TesztModule extends CWebModule
 {
+    public $secure = false;
+
 	public function init()
 	{
 		// this method is called when the module is being created
