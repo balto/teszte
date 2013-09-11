@@ -2,6 +2,8 @@
 
 class TicketModule extends CWebModule
 {
+    public $secure = false;
+
 	public function init()
 	{
 		// this method is called when the module is being created
@@ -18,6 +20,8 @@ class TicketModule extends CWebModule
 	{
 		if(parent::beforeControllerAction($controller, $action))
 		{
+
+            $controller->layout = false;
 			// this method is called before any module controller action is performed
 			// you may place customized code here
 			return true;
